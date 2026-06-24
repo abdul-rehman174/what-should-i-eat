@@ -2,8 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>What Should I Eat? 🍽️</title>
+<meta name="description" content="Cannot decide what to eat? Get a random Pakistani hostel meal suggestion in one tap." />
+<meta name="theme-color" content="#0f0f1e" />
+
+<!-- Favicon + install -->
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon-180.png" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Eat" />
+
+<!-- Social preview (Open Graph) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="What Should I Eat?" />
+<meta property="og:description" content="Cannot decide what to eat? Get a random Pakistani hostel meal suggestion in one tap." />
+<meta property="og:image" content="icon-512.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="What Should I Eat?" />
+<meta name="twitter:description" content="Get a random Pakistani hostel meal suggestion in one tap." />
+<meta name="twitter:image" content="icon-512.png" />
 <style>
   :root {
     --bg: #0f0f1e;
@@ -180,6 +200,11 @@
     document.addEventListener('keydown', (e) => {
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); spin(); }
     });
+
+    // installable PWA (only active over https / on Vercel)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
   </script>
 </body>
 </html>

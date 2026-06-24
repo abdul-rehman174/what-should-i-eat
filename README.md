@@ -17,8 +17,5 @@ Just double-click `index.html`, or:
 open index.html
 ```
 
-## 🌐 Deploy
-This is a static site — deploys to Vercel, Netlify, or GitHub Pages instantly.
-
 ---
-Made with ❤️ on a new Mac.
+Made with ❤️
