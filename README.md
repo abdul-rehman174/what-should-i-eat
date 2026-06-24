@@ -1,4 +1,4 @@
-# 🍽️ What Should I Eat?
+# What Should I Eat?
 
 A fun little spinner for when you and the hostel bruhs **can't decide what to eat**. 🎰
 
