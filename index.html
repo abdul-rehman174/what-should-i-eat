@@ -201,9 +201,20 @@
       if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); spin(); }
     });
 
-    // installable PWA (only active over https / on Vercel)
+    // installable PWA + auto-update (refreshes when a new version is deployed)
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return; refreshing = true; location.reload();
+      });
+      window.addEventListener('load', async () => {
+        try {
+          const reg = await navigator.serviceWorker.register('sw.js');
+          reg.update().catch(() => {});
+          setInterval(() => reg.update().catch(() => {}), 60000);
+          document.addEventListener('visibilitychange', () => { if (!document.hidden) reg.update().catch(() => {}); });
+        } catch (_) {}
+      });
     }
   </script>
 </body>
