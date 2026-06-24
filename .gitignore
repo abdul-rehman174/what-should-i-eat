@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Vercel
+.vercel
+
+# Editor
+.vscode/
+.idea/
+
+# Local data from the python version
+foods.json
