@@ -1,4 +1,4 @@
-const CACHE = 'what-to-eat-v3';
+const CACHE = 'what-to-eat-v4';
 const ASSETS = [
   './',
   './index.html',
